@@ -48,7 +48,7 @@ function gitlab_delete_branch($name) {
 	global $gitlab_host, $gitlab_token, $project_id, $branch_deleted;
 
 	$branch_deleted = true;
-	$url = "https://$gitlab_host/api/v4/projects/$project_id/repository/branches/$name";
+	$url = "https://$gitlab_host/api/v4/projects/$project_id/repository/branches/".urlencode($name);
 	$opts = [
 		'http' => [
 			'method'=> "DELETE",
